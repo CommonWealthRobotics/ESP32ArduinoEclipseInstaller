@@ -29,6 +29,16 @@ CP210xVCPInstaller_x64.exe
 
 Development Environment: [Sloeber Linux Stand Alone](https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse)
 
+```
+							
+mkdir -p $HOME/bin/
+wget https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse -O $HOME/bin/eclipse
+chmod +x $HOME/bin/eclipse
+bash $HOME/bin/eclipse
+				
+
+```
+
 ## [Unofficially supported] 
 ### MacOS 10.14 or earlier Bundled Sloeber
 
