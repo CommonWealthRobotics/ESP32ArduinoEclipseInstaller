@@ -3,8 +3,8 @@
 ARDUINO_LOC=~/bin/arduino-1.8.13/
 ARDUINO_ZIP_NAME=arduino-1.8.13-linux64.tar.xz
 
-ECLIPSE_LOC=~/bin/eclipse-slober-rbe/
-SLOBER_LOC=~/bin/eclipse-slober-rbe/
+ECLIPSE_LOC=~/bin/eclipse-bs/
+SLOBER_LOC=~/bin/eclipse-bs/
 
 SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -15,8 +15,8 @@ fi
 
 if ! [ "$SCRIPT" = "$HOME/bin" ]; then
  echo "Script source copied to ~/bin from " $SCRIPT
- cp $SCRIPT/linux-eclipse-esp32.sh ~/bin/linux-eclipse-esp32.sh
- chmod +x  ~/bin/linux-eclipse-esp32.sh
+ cp $SCRIPT/eclipse ~/bin/eclipse
+ chmod +x  ~/bin/eclipse
 fi
 
 if (! test -e ~/Arduino/hardware) then
@@ -170,6 +170,7 @@ if (! test -e $ECLIPSE_LOC) then
 	fi
 	
 	unzip ~/bin/linux-sloeber-eclipse.zip -d $SLOBER_LOC
+	
 	for val in $StringVal; do
 		LIBCHECK=$SLOBER_LOC/eclipse/arduinoPlugin/libraries/$val
 		if ( test -e $LIBCHECK) then
@@ -212,25 +213,25 @@ fi
 
 
 
-if (! test -e ~/bin/SloeberESP32.desktop) then
+if (! test -e ~/bin/Eclipse-BS.desktop) then
 	echo "[Desktop Entry]
 	Version=1.0
 	Type=Application
-	Name=RBE Eclipse Sloeber
+	Name=Eclipse Bowlerstudio
 	Comment=
-	Exec=$HOME/bin/linux-eclipse-esp32.sh
+	Exec=$HOME/bin/eclipse
 	Icon=$HOME/bin/eclipse-slober-rbe/eclipse/icon.xpm
 	Path=
 	Terminal=false
-	StartupNotify=false" > ~/bin/SloeberESP32.desktop
-	chmod +x ~/bin/SloeberESP32.desktop
-	gio set ~/bin/SloeberESP32.desktop "metadata::trusted" yes
-	ln -s ~/bin/SloeberESP32.desktop ~/Desktop/SloeberESP32.desktop
-	gio set ~/Desktop/SloeberESP32.desktop "metadata::trusted" yes
-	sudo desktop-file-install $HOME/Desktop/SloeberESP32.desktop
+	StartupNotify=false" > ~/bin/Eclipse-BS.desktop
+	chmod +x ~/bin/Eclipse-BS.desktop
+	gio set ~/bin/Eclipse-BS.desktop "metadata::trusted" yes
+	ln -s ~/bin/Eclipse-BS.desktop ~/Desktop/Eclipse-BS.desktop
+	gio set ~/Desktop/Eclipse-BS.desktop "metadata::trusted" yes
+	sudo desktop-file-install ~/bin/Eclipse-BS.desktop
 fi
 
-
+cd $SLOBER_LOC; grep -RiIl 'hephaestus' | xargs sed -i "s/hephaestus/$USER/g"
 
 sync
 #Run SLoeber
