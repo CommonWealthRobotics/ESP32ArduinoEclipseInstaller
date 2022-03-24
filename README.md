@@ -7,7 +7,7 @@ an installer generator for installing the ESP32 Eclipse/Arduino toolchains
 # Easy Mode
 Download and install these, do not change any default values
 
-## [Officially Supported Choice] 
+## [ Supported ] 
 ### Windows 10 Stand Alone install
 
 Requirements: Windows 10 on x86_64 with 16gb Ram
@@ -24,7 +24,7 @@ Open the folder on your disk and run
 CP210xVCPInstaller_x64.exe
 ```
 
-## [Supported] 
+## [ Supported ] 
 ### Linux Bundled Sloeber
 
 Development Environment: [Sloeber Linux Stand Alone](https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse)
