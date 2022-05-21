@@ -4,7 +4,7 @@ ARDUINO_LOC=~/bin/arduino-1.8.13/
 ARDUINO_ZIP_NAME=arduino-1.8.13-linux64.tar.xz
 
 ECLIPSE_LOC=~/bin/eclipse-bs/
-SLOBER_LOC=$ECLIPSE_LOC
+export SLOBER_LOC=$ECLIPSE_LOC
 
 SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -57,13 +57,13 @@ DFW                          RBE1001Lib EspMQTTClient wpi-32u4-library ESP32_BLE
 
 function sync {
 
-	CURRENT_LIBS=$(ls ~/bin/eclipse-slober-rbe/eclipse/arduinoPlugin/libraries)
+	CURRENT_LIBS=$(ls $SLOBER_LOC/eclipse/arduinoPlugin/libraries)
 	
 	for val in $CURRENT_LIBS; do
 		IS_DEFAULT=false
 		if [ "$val" = "ESP32ServoServer" ]; then
 			IS_DEFAULT=true
-			mv ~/bin/eclipse-slober-rbe/eclipse/arduinoPlugin/libraries/ESP32ServoServer ~/Arduino/
+			mv $SLOBER_LOC/eclipse/arduinoPlugin/libraries/ESP32ServoServer ~/Arduino/
 			rm -rf  ~/Arduino/ESP32ServoServer/core/
 			rm -rf  ~/Arduino/ESP32ServoServer/libraries
 			rm -rf  ~/Arduino/ESP32ServoServer/spec.d
@@ -72,7 +72,7 @@ function sync {
 			rm -rf  ~/Arduino/ESP32ServoServer/.settings
 			rm -rf  ~/Arduino/ESP32ServoServer/.project
 			rm -rf  ~/Arduino/ESP32ServoServer/.cproject
-			rm -rf ~/bin/eclipse-slober-rbe/eclipse/arduinoPlugin/libraries/ESP32ServoServer
+			rm -rf $SLOBER_LOC/eclipse/arduinoPlugin/libraries/ESP32ServoServer
 		fi 
 		for valDef in $DEFAULT_SLOBER_LIBS; do
 			if [ "$val" = "$valDef" ]; then
@@ -82,13 +82,13 @@ function sync {
 		if [ "$IS_DEFAULT" = true ] ; then
 			echo "Default lib found" $val
 		else
-			echo "EXTRA lib found, moving" ~/bin/eclipse-slober-rbe/eclipse/arduinoPlugin/libraries/$val " to " ~/Arduino/libraries/
+			echo "EXTRA lib found, moving" $SLOBER_LOC/eclipse/arduinoPlugin/libraries/$val " to " ~/Arduino/libraries/
 			mkdir -p ~/Arduino/libraries/$val
-			VER=$(ls ~/bin/eclipse-slober-rbe/eclipse/arduinoPlugin/libraries/$val)
+			VER=$(ls $SLOBER_LOC/eclipse/arduinoPlugin/libraries/$val)
 			for version in $VER; do
-				mv ~/bin/eclipse-slober-rbe/eclipse/arduinoPlugin/libraries/$val/$version/* ~/Arduino/libraries/$val
+				mv $SLOBER_LOC/eclipse/arduinoPlugin/libraries/$val/$version/* ~/Arduino/libraries/$val
 			done		
-			rm -rf ~/bin/eclipse-slober-rbe/eclipse/arduinoPlugin/libraries/$val/
+			rm -rf $SLOBER_LOC/eclipse/arduinoPlugin/libraries/$val/
 		fi
 	done
 	
@@ -220,7 +220,7 @@ if (! test -e ~/bin/Eclipse-BS.desktop) then
 	Name=Eclipse Bowlerstudio
 	Comment=
 	Exec=$HOME/bin/eclipse
-	Icon=$HOME/bin/eclipse-slober-rbe/eclipse/icon.xpm
+	Icon=$HOME/bin/eclipse-bs/eclipse/icon.xpm
 	Path=
 	Terminal=false
 	StartupNotify=false" > ~/bin/Eclipse-BS.desktop
