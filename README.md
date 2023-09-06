@@ -39,6 +39,21 @@ bash $HOME/bin/eclipse
 
 ```
 
+## [ Supported ] 
+### Macos Bundled Sloeber
+
+Development Environment: [Sloeber MacOS Stand Alone](https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse-mac)
+
+```
+							
+mkdir -p $HOME/bin/
+curl -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse-mac -o $HOME/bin/eclipse
+chmod +x $HOME/bin/eclipse-mac
+bash $HOME/bin/eclipse-mac
+				
+
+```
+
 ## [Unofficially supported] 
 ### MacOS 10.14 or earlier Bundled Sloeber
 
