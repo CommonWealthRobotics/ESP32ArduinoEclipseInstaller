@@ -38,3 +38,13 @@ jobs:
             asset_path: ./eclipse
             asset_name: eclipse
             asset_content_type: application/binary
+
+    - name: upload Mac Eclipse artifact
+      uses: actions/upload-release-asset@v1
+      env:
+            GITHUB_TOKEN: ${{ github.token }}
+      with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }}
+            asset_path: ./eclipse-mac
+            asset_name: eclipse-mac
+            asset_content_type: application/binary
