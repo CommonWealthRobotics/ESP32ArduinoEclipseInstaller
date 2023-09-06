@@ -47,7 +47,7 @@ Development Environment: [Sloeber MacOS Stand Alone](https://github.com/CommonWe
 ```
 							
 mkdir -p $HOME/bin/
-curl -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse-mac -o $HOME/bin/eclipse
+curl -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse-mac -o $HOME/bin/eclipse-mac
 chmod +x $HOME/bin/eclipse-mac
 bash $HOME/bin/eclipse-mac
 				
