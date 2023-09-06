@@ -42,7 +42,7 @@ bash $HOME/bin/eclipse
 ## [ Supported ] 
 ### Macos Bundled Sloeber
 
-Development Environment: [Sloeber Linux Stand Alone](https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse-mac)
+Development Environment: [Sloeber MacOS Stand Alone](https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/latest/download/eclipse-mac)
 
 ```
 							
