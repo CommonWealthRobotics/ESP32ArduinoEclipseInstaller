@@ -30,6 +30,6 @@ cd $SLOBER_LOC; grep -RiIl 'kharrington' | xargs sed -i '' -e "s/kharrington/$US
 
 echo "Parameters are $@"
 #Run SLoeber
-open $SLOBER_LOC/Eclipse.app --args -a "$@"
+open $SLOBER_LOC/Eclipse.app --args "$@"
 
 
