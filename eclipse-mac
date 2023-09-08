@@ -3,6 +3,12 @@
 ECLIPSE_LOC=~/bin/eclipse/
 export SLOBER_LOC=$ECLIPSE_LOC
 
+ZIP=Eclipse-Macos.zip
+if [[ $(uname -m) == 'arm64' ]]; then
+  echo "M1 Mac detected " 
+  ZIP=Eclipse-mac-AArch64.zip
+fi
+
 SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 
@@ -19,14 +25,14 @@ fi
 
 if (! test -e $ECLIPSE_LOC) then
   if (! test -e ~/bin/linux-sloeber-eclipse.zip ) then
-	 curl  -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/Eclipse-Macos.zip -o ~/bin/Eclipse-Macos.zip
+	 curl  -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/Eclipse-Macos.zip -o ~/bin/$ZIP
 	fi
 	
-	unzip ~/bin/Eclipse-Macos.zip -d $SLOBER_LOC
+	unzip ~/bin/$ZIP -d $SLOBER_LOC
 
 fi
 
-cd $SLOBER_LOC; grep -RiIl 'kharrington' | xargs sed -i '' -e "s/kharrington/$USER/g"
+cd $SLOBER_LOC; grep -RiIl 'kharrington' .| xargs sed -i '' -e "s/kharrington/$USER/g"
 
 echo "Parameters are $@"
 #Run SLoeber
