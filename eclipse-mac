@@ -12,7 +12,7 @@ fi
 
 if ! [ "$SCRIPT" = "$HOME/bin" ]; then
  echo "Script source copied to ~/bin from " $SCRIPT
- cp $SCRIPT/eclipse ~/bin/eclipse-mac
+ cp $SCRIPT/eclipse-mac ~/bin/eclipse-mac
  chmod +x  ~/bin/eclipse-mac
 fi
 
