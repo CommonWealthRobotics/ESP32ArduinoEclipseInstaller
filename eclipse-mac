@@ -28,8 +28,8 @@ fi
 
 cd $SLOBER_LOC; grep -RiIl 'kharrington' | xargs sed -i '' -e "s/kharrington/$USER/g"
 
-
+echo "Parameters are $@"
 #Run SLoeber
-$SLOBER_LOC/Eclipse.app/Contents/MacOS/eclipse "$@"
+open $SLOBER_LOC/Eclipse.app --args -a "$@"
 
 
