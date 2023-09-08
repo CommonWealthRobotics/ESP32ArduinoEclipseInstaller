@@ -33,12 +33,12 @@ if (! test -e $ARDUINO_LOC) then
 	fi
 	
 	tar -xvf ~/bin/$ARDUINO_ZIP_NAME -C ~/bin/
-	sudo usermod -a -G dialout $USER 
-	sudo apt-get install git python3-serial python3
+	pkexec usermod -a -G dialout $USER 
+	pkexec apt-get install git python3-serial python3
 	wget https://bootstrap.pypa.io/get-pip.py 
 	echo "Getting Pip, might take a while..."
-	sudo python get-pip.py
-	sudo pip install pyserial 
+	pkexec python get-pip.py
+	pkexec pip install pyserial 
 fi
 
 DEFAULT_SLOBER_LIBS="CapacitiveSensor  Ethernet  Firmata  GSM  Keyboard  LiquidCrystal  Mouse  Servo  Stepper  TFT  WiFi SD"
@@ -161,7 +161,7 @@ if (! test -e ~/bin/ArduinoESP32.desktop) then
 	gio set ~/bin/ArduinoESP32.desktop "metadata::trusted" yes
 	ln -s ~/bin/ArduinoESP32.desktop ~/Desktop/ArduinoESP32.desktop
 	gio set ~/Desktop/ArduinoESP32.desktop "metadata::trusted" yes
-	sudo desktop-file-install $HOME/Desktop/ArduinoESP32.desktop
+	pkexec desktop-file-install $HOME/Desktop/ArduinoESP32.desktop
 fi
 
 if (! test -e $ECLIPSE_LOC) then
@@ -228,13 +228,14 @@ if (! test -e ~/bin/Eclipse-BS.desktop) then
 	gio set ~/bin/Eclipse-BS.desktop "metadata::trusted" yes
 	ln -s ~/bin/Eclipse-BS.desktop ~/Desktop/Eclipse-BS.desktop
 	gio set ~/Desktop/Eclipse-BS.desktop "metadata::trusted" yes
-	sudo desktop-file-install ~/bin/Eclipse-BS.desktop
+	pkexec desktop-file-install ~/bin/Eclipse-BS.desktop
+	sync
 fi
 
 cd $SLOBER_LOC; grep -RiIl 'hephaestus' | xargs sed -i "s/hephaestus/$USER/g"
 
-sync
+#sync
 #Run SLoeber
 $SLOBER_LOC/eclipse/eclipse "$@"
 
-sync
+#sync
