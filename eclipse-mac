@@ -25,13 +25,13 @@ fi
 
 
 if (! test -e $ECLIPSE_LOC) then
+  echo "Downloading Eclipse Zip..."
   if (! test -e ~/bin/$ZIP ) then
 	 curl  -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/$ZIP -o ~/bin/$ZIP
   fi
   echo "$ECLIPSE_LOC not found, unzipping Eclipse... "
   unzip  -qq  ~/bin/$ZIP -d $SLOBER_LOC
   echo "unzipping Eclipse... Complete! "
-
 
 fi
 
