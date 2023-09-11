@@ -29,7 +29,7 @@ if (! test -e $ECLIPSE_LOC) then
   fi
   echo "$ECLIPSE_LOC not found, unzipping Eclipse... "
   unzip ~/bin/$ZIP  -qq -d $SLOBER_LOC
-  echo "unzipping Eclipse... Complete!ß "
+  echo "unzipping Eclipse... Complete! "
 
 
 fi
