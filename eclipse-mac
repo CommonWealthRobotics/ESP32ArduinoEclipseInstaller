@@ -4,6 +4,7 @@ ECLIPSE_LOC=~/bin/eclipse/
 export SLOBER_LOC=$ECLIPSE_LOC
 
 ZIP=Eclipse-Macos.zip
+USERINZIP=kharrington
 if [[ $(uname -m) == 'arm64' ]]; then
   echo "M1 Mac detected " 
   ZIP=Eclipse-mac-AArch64.zip
@@ -28,13 +29,13 @@ if (! test -e $ECLIPSE_LOC) then
 	 curl  -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/$ZIP -o ~/bin/$ZIP
   fi
   echo "$ECLIPSE_LOC not found, unzipping Eclipse... "
-  unzip ~/bin/$ZIP  -qq -d $SLOBER_LOC
+  unzip  -qq  ~/bin/$ZIP -d $SLOBER_LOC
   echo "unzipping Eclipse... Complete! "
 
 
 fi
 
-cd $SLOBER_LOC; grep -RiIl 'kharrington' .| xargs sed -i '' -e "s/kharrington/$USER/g"
+cd $SLOBER_LOC; grep -RiIl "$USERINZIP" .| xargs sed -i '' -e "s/$USERINZIP/$USER/g"
 
 echo "Parameters are $@"
 #Run SLoeber
