@@ -24,11 +24,13 @@ fi
 
 
 if (! test -e $ECLIPSE_LOC) then
-  if (! test -e ~/bin/linux-sloeber-eclipse.zip ) then
+  if (! test -e ~/bin/$ZIP ) then
 	 curl  -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/$ZIP -o ~/bin/$ZIP
-	fi
-	
-	unzip ~/bin/$ZIP -d $SLOBER_LOC
+  fi
+  echo "$ECLIPSE_LOC not found, unzipping Eclipse... "
+  unzip ~/bin/$ZIP  -qq -d $SLOBER_LOC
+  echo "unzipping Eclipse... Complete!ß "
+
 
 fi
 
