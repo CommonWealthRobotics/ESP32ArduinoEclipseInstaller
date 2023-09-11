@@ -25,7 +25,7 @@ fi
 
 if (! test -e $ECLIPSE_LOC) then
   if (! test -e ~/bin/linux-sloeber-eclipse.zip ) then
-	 curl  -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/Eclipse-Macos.zip -o ~/bin/$ZIP
+	 curl  -L https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/$ZIP -o ~/bin/$ZIP
 	fi
 	
 	unzip ~/bin/$ZIP -d $SLOBER_LOC
