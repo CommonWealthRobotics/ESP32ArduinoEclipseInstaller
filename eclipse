@@ -76,8 +76,6 @@ if (! test -e $ECLIPSE_LOC) then
 	# Replace the mbedtls definition so it commpiles
 	sed -i 's/"mbedtls\/esp_config.h"/\\"mbedtls\/esp_config.h\\"/g' $File 
 	# clear stale temp sloeber files
-	rm $SLOBER_LOC/eclipse/arduinoPlugin/packages/esp32/hardware/esp32/1.0.4/platform.sloeber.txt
-	rm ~/.arduino15/packages//esp32/hardware/esp32/1.0.4/platform.sloeber.txt
 
 fi
 
