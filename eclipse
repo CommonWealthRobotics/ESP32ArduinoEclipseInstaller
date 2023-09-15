@@ -37,9 +37,10 @@ fi
 
 if (! test -e $ECLIPSE_LOC) then
   if (! test -e ~/bin/linux-sloeber-eclipse.zip ) then
+  	 echo "Downloading Eclipse Zip"
 	 wget https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/linux-sloeber-eclipse.zip -O ~/bin/linux-sloeber-eclipse.zip
 	fi
-	
+	echo "Extracting Eclipse"
 	unzip ~/bin/linux-sloeber-eclipse.zip -d $SLOBER_LOC
 	
 	for val in $StringVal; do
