@@ -51,16 +51,16 @@ if (! test -e $ECLIPSE_LOC) then
 		fi   
 	done
 	grep -v "osgi.instance.area.default" $SLOBER_LOC/eclipse/configuration/config.ini > ~/bin/config.ini
-	echo "osgi.instance.area.default=$HOME/bs-workspace" >>~/bin/config.ini
+	echo "osgi.instance.area.default=$HOME/bowler-workspace/eclipse" >>~/bin/config.ini
 	cp ~/bin/config.ini 			$SLOBER_LOC/eclipse/configuration/
 		
 	grep -v "RECENT_WORKSPACES=" $SLOBER_LOC/eclipse/configuration/.settings/org.eclipse.ui.ide.prefs > ~/bin/org.eclipse.ui.ide.prefs
-	echo "RECENT_WORKSPACES=$HOME/bs-workspace" >>~/bin/org.eclipse.ui.ide.prefs
+	echo "RECENT_WORKSPACES=$HOME/bowler-workspace/eclipse" >>~/bin/org.eclipse.ui.ide.prefs
 	cp ~/bin/org.eclipse.ui.ide.prefs $SLOBER_LOC/eclipse/configuration/.settings/
 	
 	
 	grep -v "Dosgi.instance.area.default" $SLOBER_LOC/eclipse/eclipse.ini > ~/bin/eclipse.ini
-	echo "-Dosgi.instance.area.default=@user.home/bs-workspace" >>~/bin/eclipse.ini
+	echo "-Dosgi.instance.area.default=@user.home/bowler-workspace/eclipse" >>~/bin/eclipse.ini
 	cp ~/bin/eclipse.ini $SLOBER_LOC/eclipse/
 	
 		File=$SLOBER_LOC/eclipse/arduinoPlugin/packages/esp32/hardware/esp32/1.0.4/platform.txt
