@@ -36,12 +36,12 @@ if (! test -e ~/bin/Eclipse-BS.desktop) then
 fi
 
 if (! test -e $ECLIPSE_LOC) then
-  if (! test -e ~/bin/linux-sloeber-eclipse.zip ) then
+  if (! test -e ~/bin/eclipse-linux-sloeber-groovy.zip ) then
   	 echo "Downloading Eclipse Zip"
-	 wget https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/linux-sloeber-eclipse.zip -O ~/bin/linux-sloeber-eclipse.zip
+	 wget https://github.com/CommonWealthRobotics/ESP32ArduinoEclipseInstaller/releases/download/0.0.0/eclipse-linux-sloeber-groovy.zip -O ~/bin/eclipse-linux-sloeber-groovy.zip
 	fi
 	echo "Extracting Eclipse"
-	unzip ~/bin/linux-sloeber-eclipse.zip -d $SLOBER_LOC
+	unzip ~/bin/eclipse-linux-sloeber-groovy.zip -d $SLOBER_LOC
 	
 	for val in $StringVal; do
 		LIBCHECK=$SLOBER_LOC/eclipse/arduinoPlugin/libraries/$val
@@ -63,7 +63,7 @@ if (! test -e $ECLIPSE_LOC) then
 	echo "-Dosgi.instance.area.default=@user.home/bowler-workspace/eclipse" >>~/bin/eclipse.ini
 	cp ~/bin/eclipse.ini $SLOBER_LOC/eclipse/
 	
-		File=$SLOBER_LOC/eclipse/arduinoPlugin/packages/esp32/hardware/esp32/1.0.4/platform.txt
+	File=$SLOBER_LOC/eclipse/arduinoPlugin/packages/esp32/hardware/esp32/1.0.4/platform.txt
 	TOOLROOT=$SLOBER_LOC/eclipse/arduinoPlugin/packages/esp32/tools/xtensa-esp32-elf-gcc/
 	TOOLROOT_PY=$SLOBER_LOC/eclipse/arduinoPlugin/packages/esp32/tools/esptool_py/
 	VERSIO_PY=$(ls $TOOLROOT_PY)
