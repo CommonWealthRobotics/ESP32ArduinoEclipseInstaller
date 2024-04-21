@@ -81,7 +81,7 @@ fi
 
 
 cd $SLOBER_LOC; grep -RiIl 'hephaestus' .| xargs sed -i "s/hephaestus/$USER/g"
-
+export WEBKIT_DISABLE_DMABUF_RENDERER=1 
 #Run SLoeber
 $SLOBER_LOC/eclipse/eclipse "$@"
 
